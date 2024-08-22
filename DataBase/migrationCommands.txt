@@ -1,0 +1,2 @@
+﻿dotnet ef migrations add FirstInit -p DataBase  -s TestTaskVitaliyPonomarev  -c UserStatisticDbContext
+dotnet ef database update -p DataBase  -s TestTaskVitaliyPonomarev  -c UserStatisticDbContext
