@@ -22,9 +22,10 @@ public class UserStatisticController : ControllerBase
     }
 
     [HttpPost("user_statistics")]
-    public Guid CreateQuery([FromQuery] Guid userId, [FromQuery] DateTime from, [FromQuery] DateTime to)
+    public async Task<Guid> CreateQuery( Guid userId, DateTime from, DateTime to)
     {
-        return StatisticQueryEntityRepository.Add(userId, from, to).Result;
+        var request = Request;
+        return await StatisticQueryEntityRepository.Add(userId, from, to);
     }
 
     [HttpGet("info")]

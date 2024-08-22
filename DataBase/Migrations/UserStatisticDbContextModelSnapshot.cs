@@ -42,7 +42,7 @@ namespace DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StatisticRequests");
+                    b.ToTable("StatisticQuery");
                 });
 
             modelBuilder.Entity("DataBase.Entities.UserSignInEntity", b =>
