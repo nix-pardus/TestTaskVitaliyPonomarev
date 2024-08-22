@@ -1,24 +1,6 @@
-@TestTaskVitaliyPonomarev_HostAddress = http://localhost:5001
+@TestTaskVitaliyPonomarev_HostAddress = https://localhost:7164
 
-POST {{TestTaskVitaliyPonomarev_HostAddress}}/report/user_statistics
-Content-Type: application/json
-{
-  "userId": "7E1E15E1-330E-4A19-A7C9-5977338CC6D8",
-  "from": "2024-08-20 00:47:05.0000000",
-  "to": "2024-08-22 00:47:05.0000000"
-}
-
-###
-
-GET {{TestTaskVitaliyPonomarev_HostAddress}}/report/info?queryId=84fe0a89-7a66-4974-a55f-e9d4a7e6a61f
+GET {{TestTaskVitaliyPonomarev_HostAddress}}/report/info?queryId=2c729337-1c48-4e50-a140-33fc48bf6409
 Content-Type: application/json
 
 ###
-
-GET {{TestTaskVitaliyPonomarev_HostAddress}}/report/info?queryId=A159979B-13F6-4297-8736-BB7582E6F20C
-Content-Type: application/json
-
-###
-
-GET {{TestTaskVitaliyPonomarev_HostAddress}}/report/info?queryId=5780E5F4-C128-48B6-B8D4-BD4A6535A55E
-Content-Type: application/json

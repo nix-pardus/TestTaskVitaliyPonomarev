@@ -12,16 +12,18 @@ namespace DataBase.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "StatisticRequests",
+                name: "StatisticQuery",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     From = table.Column<DateTime>(type: "datetime2", nullable: false),
                     To = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StatisticRequests", x => x.Id);
+                    table.PrimaryKey("PK_StatisticQuery", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -30,7 +32,7 @@ namespace DataBase.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LoginTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    SignInTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,7 +44,7 @@ namespace DataBase.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "StatisticRequests");
+                name: "StatisticQuery");
 
             migrationBuilder.DropTable(
                 name: "UserStatistics");

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBase.Migrations
 {
     [DbContext(typeof(UserStatisticDbContext))]
-    [Migration("20240820200214_FirstInit")]
+    [Migration("20240822184045_FirstInit")]
     partial class FirstInit
     {
         /// <inheritdoc />
@@ -25,11 +25,14 @@ namespace DataBase.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DataBase.Entities.StatisticRequestEntity", b =>
+            modelBuilder.Entity("DataBase.Entities.StatisticQueryEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("From")
                         .HasColumnType("datetime2");
@@ -37,18 +40,21 @@ namespace DataBase.Migrations
                     b.Property<DateTime>("To")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
-                    b.ToTable("StatisticRequests");
+                    b.ToTable("StatisticQuery");
                 });
 
-            modelBuilder.Entity("DataBase.Entities.UserStatisticEntity", b =>
+            modelBuilder.Entity("DataBase.Entities.UserSignInEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("LoginTime")
+                    b.Property<DateTime>("SignInTime")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("UserId")
